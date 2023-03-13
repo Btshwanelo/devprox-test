@@ -1,22 +1,25 @@
 const url = '/api/v1/records';
 
+//dom element
+const containerDom = document.getElementById('container');
+const inputDom = document.getElementById('fileinput');
+
+//on load run get data count of the records and populate the dom
 window.onload = function (e) {
-  var tbody = document.getElementById('container');
   fetch(url)
     .then((res) => res.json())
     .then((data) => {
-      tbody.innerHTML = `<h4> there are ${data.count} imported records</h4>`;
+      containerDom.innerHTML = `<h4> there are ${data.count} imported records</h4>`;
     })
     .catch((e) => console.log(e));
 };
 
-const addCSV = (e) => {
+//generate csv file
+const generateCSV = (e) => {
   e.preventDefault();
-  const input = document.getElementById('fileinput');
-
   var formData = new FormData();
 
-  formData.append('file', input.files[0]);
+  formData.append('file', inputDom.files[0]);
 
   fetch(url, {
     method: 'POST',
@@ -25,10 +28,10 @@ const addCSV = (e) => {
     .then((res) => res.json())
     .then((data) => {
       alert('CSV uploaded successfully');
-
+      // clear form
       window.location.reload();
     })
     .catch((e) => console.log(e));
 };
 
-document.getElementById('upload_form').addEventListener('submit', addCSV);
+document.getElementById('upload_form').addEventListener('submit', generateCSV);

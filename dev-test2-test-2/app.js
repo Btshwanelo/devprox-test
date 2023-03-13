@@ -4,10 +4,8 @@ const records = require('./routes/records');
 const connectDB = require('./db/connect');
 require('dotenv').config();
 const notFound = require('./middleware/not-found');
-//const errorHandlerMiddleware = require('./middleware/error-handler');
 
 // middleware
-
 app.use(express.static('./public'));
 app.use(express.json());
 
@@ -18,7 +16,7 @@ const db = require('./db/keys').MONGO_URI;
 app.use('/api/v1/records', records);
 
 app.use(notFound);
-//app.use(errorHandlerMiddleware);
+
 const port = process.env.PORT || 5000;
 
 const start = async () => {

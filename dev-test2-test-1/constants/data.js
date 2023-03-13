@@ -1,3 +1,4 @@
+//names array
 const names = [
   'Emma',
   'Olivia',
@@ -20,6 +21,8 @@ const names = [
   'Aria',
   'Scarlett',
 ];
+
+//surnames array
 const surnames = [
   'Smith',
   'Johnson',
