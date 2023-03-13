@@ -1,4 +1,4 @@
-const mongoose = require('mongoose')
+const mongoose = require('mongoose');
 
 const RecordSchema = new mongoose.Schema({
   id: String,
@@ -6,7 +6,7 @@ const RecordSchema = new mongoose.Schema({
   surname: String,
   initials: String,
   age: String,
-  dateOfBirth: String
-})
+  dateOfBirth: String,
+});
 
-module.exports = mongoose.model('Record', RecordSchema)
+module.exports = mongoose.model('Record', RecordSchema);

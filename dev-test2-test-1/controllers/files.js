@@ -87,7 +87,6 @@ const createFile = async (req, res) => {
     .on('end', () => {
       // Compare the rows using a JavaScript function
       const duplicates = compareRows(rows);
-      console.log('duplicates', duplicates);
 
       res.status(200).json({ msg: 'success', duplicateCount: duplicates.length });
     });
